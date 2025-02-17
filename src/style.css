@@ -74,7 +74,7 @@ button:disabled {
 
 .bottom-align {
     margin-top: auto;
-    margin-bottom: 0;
+    margin-bottom: var(--padding);
 }
 
 .no-wrap {
@@ -118,10 +118,10 @@ button:disabled {
 }
 
 .quarter {
-    height: calc(50% - calc(var(--padding)));
+    height: calc(50%);
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--half-padding);
+    margin-bottom: var(--padding);
 }
 
 #output {
