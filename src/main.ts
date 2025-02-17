@@ -19,11 +19,11 @@ const task_id = document.getElementById("task-id")! as HTMLInputElement;
 const upload_script = document.getElementById(
     "upload-script"
 )! as HTMLButtonElement;
-const restore_task = document.getElementById(
-    "restore-task"
-)! as HTMLButtonElement;
 
 const output = document.getElementById("output")! as HTMLDivElement;
+const return_values = document.getElementById(
+    "return-values"
+)! as HTMLDivElement;
 
 type OpenCloudExecutionTask = {
     path: string;
@@ -69,6 +69,14 @@ function emit_line(line_type: MessageType, message: string) {
     element.className = `output-${line_type}`;
     element.textContent = message;
     output.appendChild(element);
+}
+
+function clear_output() {
+    output.replaceChildren();
+}
+
+function clear_results() {
+    return_values.replaceChildren();
 }
 
 function lock_fields() {
@@ -156,6 +164,8 @@ function parse_task(path: string): OpenCloudPath | null {
 
 window.addEventListener("DOMContentLoaded", () => {
     upload_script.onclick = async () => {
+        clear_results();
+        clear_output();
         let task = await create_task().catch((e) => {
             window.alert(e);
         });
@@ -193,9 +203,5 @@ window.addEventListener("DOMContentLoaded", () => {
                 unlock_fields();
             }
         }
-    };
-
-    restore_task.onclick = () => {
-        emit_line("WARNING", script_editor_content());
     };
 });
