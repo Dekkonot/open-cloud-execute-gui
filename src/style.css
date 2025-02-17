@@ -33,9 +33,6 @@ input {
 }
 
 button {
-    padding: var(--padding);
-    height: 40px;
-    width: 75%;
     background-color: var(--button-background);
     border: 2px solid var(--button-border);
     color: var(--button-text);
@@ -92,7 +89,10 @@ button:disabled {
     row-gap: calc(var(--half-padding));
 }
 
-.center {
+#upload-script {
+    padding: var(--padding);
+    height: 40px;
+    width: 75%;
     display: flex;
     justify-content: center;
     width: 100%;
