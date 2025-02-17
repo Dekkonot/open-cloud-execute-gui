@@ -84,6 +84,7 @@ function lock_fields() {
     place_id.readOnly = true;
     place_version.readOnly = true;
     api_key.readOnly = true;
+    upload_script.disabled = true;
 }
 
 function unlock_fields() {
@@ -91,6 +92,7 @@ function unlock_fields() {
     place_id.readOnly = false;
     place_version.readOnly = false;
     api_key.readOnly = false;
+    upload_script.disabled = false;
 }
 
 async function create_task(): Promise<OpenCloudExecutionTask> {
