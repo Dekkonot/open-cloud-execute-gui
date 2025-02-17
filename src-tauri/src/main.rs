@@ -3,5 +3,5 @@
 
 #[tokio::main]
 async fn main() {
-    open_cloud_execute_tauri_lib::run()
+    open_cloud_luau_execute_lib::run()
 }

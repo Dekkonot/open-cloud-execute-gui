@@ -2547,7 +2547,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "open-cloud-execute-tauri"
+name = "open-cloud-luau-execute"
 version = "0.1.0"
 dependencies = [
  "reqwest",
