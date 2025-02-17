@@ -1,0 +1,231 @@
+/* These themes are shamelessly stolen from the Luau website. */
+/* Licensed under MIT (c) Roblox 2025 */
+
+/* Dark theme */
+
+.cm-s-dark.CodeMirror {
+    background: rgb(37, 37, 37);
+    color: rgb(204, 204, 204);
+    border: 2px solid #222222;
+
+    /* Variation: making it resizable */
+    resize: vertical;
+}
+
+.cm-s-dark div.CodeMirror-selected {
+    background: rgb(11, 90, 175) !important;
+}
+
+.cm-s-dark .CodeMirror-gutters {
+    background: rgb(50, 50, 50);
+    border-right: 0px;
+}
+
+.cm-s-dark .CodeMirror-linenumber {
+    color: rgb(204, 204, 204);
+}
+
+.cm-s-dark .CodeMirror-cursor {
+    border-left: 1px solid rgb(204, 204, 204) !important;
+}
+
+.cm-s-dark span.cm-comment {
+    color: rgb(102, 102, 102);
+}
+
+.cm-s-dark span.cm-atom {
+    color: rgb(255, 198, 0);
+}
+
+.cm-s-dark span.cm-number {
+    color: rgb(255, 198, 0);
+}
+
+.cm-s-dark span.cm-keyword {
+    color: rgb(248, 109, 124);
+}
+
+.cm-s-dark span.cm-string {
+    color: rgb(173, 241, 149);
+}
+
+.cm-s-dark span.cm-variable {
+    color: rgb(204, 204, 204);
+}
+
+.cm-s-dark span.cm-builtin {
+    color: rgb(132, 214, 247);
+}
+
+.cm-s-dark span.cm-bracket {
+    color: rgb(204, 204, 204);
+}
+
+.cm-s-dark span.cm-tag {
+    color: rgb(255, 0, 0);
+}
+
+.cm-s-dark .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: white !important;
+}
+
+.cm-s-dark .CodeMirror-activeline-background {
+    background: #202020;
+}
+
+/* Light theme */
+
+.cm-s-light.CodeMirror {
+    background: white;
+    color: black;
+    border: 2px solid #b6b6b6;
+
+    /* Variation: making it resizable */
+    resize: vertical;
+}
+
+.cm-s-light div.CodeMirror-selected {
+    background: rgb(110, 161, 241) !important;
+}
+
+.cm-s-light .CodeMirror-gutters {
+    background: rgb(221, 221, 221);
+    border-right: 0px;
+}
+
+.cm-s-light .CodeMirror-linenumber {
+    color: black;
+}
+
+.cm-s-light .CodeMirror-cursor {
+    border-left: 1px solid black !important;
+}
+
+.cm-s-light span.cm-comment {
+    color: rgb(0, 127, 9);
+}
+
+.cm-s-light span.cm-atom {
+    color: rgb(0, 127, 127);
+}
+
+.cm-s-light span.cm-number {
+    color: rgb(0, 127, 127);
+}
+
+.cm-s-light span.cm-keyword {
+    color: rgb(0, 0, 127);
+}
+
+.cm-s-light span.cm-string {
+    color: rgb(127, 0, 127);
+}
+
+.cm-s-light span.cm-variable {
+    color: black;
+}
+
+.cm-s-light span.cm-builtin {
+    color: rgb(127, 0, 0);
+}
+
+.cm-s-light span.cm-bracket {
+    color: rgb(127, 127, 0);
+}
+
+.cm-s-light span.cm-tag {
+    color: rgb(255, 0, 0);
+}
+
+.cm-s-light .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: black !important;
+}
+
+.cm-s-light .CodeMirror-activeline-background {
+    background: #202020;
+}
+
+/*
+    ...Okay I lied. Those themes above were taken from Roblox.
+    They did not in fact create the hotdog theme. Though they should have.
+*/
+
+.cm-s-hotdog.CodeMirror {
+    background: #ffff00;
+    color: #000000;
+    border: 2px solid #000000;
+
+    /* Variation: making it resizable */
+    resize: vertical;
+}
+
+.cm-s-hotdog div.CodeMirror-selected {
+    background: #c6c6c6 !important;
+    color: #000000 !important;
+}
+
+.cm-s-hotdog .CodeMirror-gutters {
+    background: #ff0000;
+    border-right: 0px;
+}
+
+.cm-s-hotdog .CodeMirror-linenumber {
+    color: #ffffff;
+}
+
+.cm-s-hotdog .CodeMirror-cursor {
+    border-left: 1px solid #000000 !important;
+}
+
+.cm-s-hotdog span.cm-comment {
+    color: #000000;
+}
+
+.cm-s-hotdog span.cm-atom {
+    color: #848484;
+}
+
+.cm-s-hotdog span.cm-number {
+    color: #000000;
+    background-color: #ff0000;
+}
+
+.cm-s-hotdog span.cm-keyword {
+    color: #ffff00;
+    background-color: #ff0000;
+}
+
+.cm-s-hotdog span.cm-string {
+    color: #000000;
+    background-color: #ff0000;
+}
+
+.cm-s-hotdog span.cm-variable {
+    color: #ff0000;
+}
+
+.cm-s-hotdog span.cm-builtin {
+    color: #ffff00;
+    background-color: #ff0000;
+}
+
+.cm-s-hotdog span.cm-bracket {
+    color: #848484;
+}
+
+.cm-s-hotdog span.cm-tag {
+    color: #ffffff;
+    background-color: #000000;
+    font-weight: bold;
+}
+
+.cm-s-hotdog .CodeMirror-matchingbracket {
+    text-decoration: underline;
+    color: black !important;
+}
+
+.cm-s-hotdog .CodeMirror-activeline-background {
+    background: #202020;
+}

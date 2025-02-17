@@ -1,0 +1,181 @@
+body[data-theme="light"] {
+    /* MainBackground */
+    --background-color: #ffffff;
+
+    /* ScriptBackground */
+    --widget-color: #ffffff;
+    /* Border */
+    --widget-border: #b6b6b6;
+
+    --output-print: black;
+    --output-warn: orange;
+    --output-error: red;
+    --output-info: blue;
+
+    /* MainText */
+    --text-color: #000000;
+
+    /* InputFieldBackground */
+    --input-background: #ffffff;
+    /* InputFieldBorder */
+    --input-border: #c8c8c8;
+
+    /* Button */
+    --button-background: #c8c8c8;
+    /* ButtonBorder */
+    --button-border: #b6b6b6;
+    /* ButtonText */
+    --button-text: #000000;
+
+    /* Button, Hover */
+    --button-hover-background: #e4eefe;
+    /* ButtonBorder, Hover */
+    --button-hover-border: #b6b6b6;
+    /* ButtonText, Hover */
+    --button-hover-text: #000000;
+
+    /* Button, Pressed */
+    --button-active-background: #dbdbdb;
+    /* ButtonBorder, Pressed */
+    --button-active-border: #b6b6b6;
+    /* ButtonText, Pressed */
+    --button-active-text: #000000;
+
+    /* Button, disabled */
+    --button-disabled-background: #ffffff;
+    /* ButtonBorder, Pressed */
+    --button-disabled-border: #787878;
+    /* ButtonText, Pressed */
+    --button-disabled-text: #cccccc;
+
+    --json-punctuation: #7f7f00;
+    --json-string: #7f007f;
+    --json-number: #007f7f;
+    --json-literal: #f86d7c;
+}
+
+body[data-theme="dark"] {
+    /* MainBackground */
+    --background-color: #2e2e2e;
+
+    /* ScriptBackground */
+    --widget-color: #252525;
+    /* Border */
+    --widget-border: #222222;
+
+    --output-print: white;
+    --output-warn: orange;
+    --output-error: red;
+    --output-info: lightblue;
+
+    /* MainText */
+    --text-color: #cccccc;
+
+    /* InputFieldBackground */
+    --input-background: #252525;
+    /* InputFieldBorder */
+    --input-border: #1a1a1a;
+
+    /* Button */
+    --button-background: #3c3c3c;
+    /* ButtonBorder */
+    --button-border: #353535;
+    /* ButtonText */
+    --button-text: #cccccc;
+
+    /* Button, Hover */
+    --button-hover-background: #424242;
+    /* ButtonBorder, Hover */
+    --button-hover-border: #353535;
+    /* ButtonText, Hover */
+    --button-hover-text: #cccccc;
+
+    /* Button, Pressed */
+    --button-active-background: #292929;
+    /* ButtonBorder, Pressed */
+    --button-active-border: #353535;
+    /* ButtonText, Pressed */
+    --button-active-text: #cccccc;
+
+    /* Button, disabled */
+    --button-disabled-background: #3c3c3c;
+    /* ButtonBorder, Pressed */
+    --button-disabled-border: #353535;
+    /* ButtonText, Pressed */
+    --button-disabled-text: #555555;
+
+    --json-punctuation: #cccccc;
+    --json-string: #adf195;
+    --json-number: #ffc600;
+    --json-literal: #f86d7c;
+}
+
+body[data-theme="hotdog"] {
+    /* MainBackground */
+    --background-color: #ff0000;
+
+    /* ScriptBackground */
+    --widget-color: #ffff00;
+    /* Border */
+    --widget-border: #000000;
+
+    --output-print: white;
+    --output-warn: orange;
+    --output-error: red;
+    --output-info: lightblue;
+
+    /* MainText */
+    --text-color: #ffffff;
+
+    /* InputFieldBackground */
+    --input-background: #ffff00;
+    /* InputFieldBorder */
+    --input-border: #000000;
+
+    /* Button */
+    --button-background: #c6c6c6;
+    /* ButtonBorder */
+    --button-border: #848484;
+    /* ButtonText */
+    --button-text: #000000;
+
+    /* Button, Hover */
+    --button-hover-background: #c6c6c6;
+    /* ButtonBorder, Hover */
+    --button-hover-border: #848484;
+    /* ButtonText, Hover */
+    --button-hover-text: #000000;
+
+    /* Button, Pressed */
+    --button-active-background: #000000;
+    /* ButtonBorder, Pressed */
+    --button-active-border: #848484;
+    /* ButtonText, Pressed */
+    --button-active-text: #ffffff;
+
+    /* Button, disabled */
+    --button-disabled-background: #c6c6c6;
+    /* ButtonBorder, Pressed */
+    --button-disabled-border: #848484;
+    /* ButtonText, Pressed */
+    --button-disabled-text: #848484;
+
+    --json-punctuation: #848484;
+    --json-string: #000000;
+    --json-number: #000000;
+    --json-literal: #ffff00;
+}
+
+body[data-theme="hotdog"] input {
+    color: #ff0000;
+    font-weight: bolder;
+}
+
+body[data-theme="hotdog"] #output span {
+    background-color: black;
+}
+
+body[data-theme="hotdog"] .hljs-string,
+body[data-theme="hotdog"] .hljs-number {
+    background-color: #ff0000;
+}

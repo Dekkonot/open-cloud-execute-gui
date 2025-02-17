@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Roblox Open Cloud Execution</title>
+
+    <script src="./src/function.js" type="module" defer></script>
+    <script src="./src/main.ts" type="module" defer></script>
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/styles/default.min.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/languages/json.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/gh/luau-lang/site/assets/js/luau_mode.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" />
+
+    <link rel="stylesheet" href="./src/theme.css" />
+    <link rel="stylesheet" href="./src/code-editor.css" />
+    <link rel="stylesheet" href="./src/style.css" />
+</head>
+
+<body data-theme="light">
+    <div id="titlebar" class="header">
+        <label class="right-align" for="theme-toggle">Toggle Theme</label>
+        <button class="fa-solid fa-circle-half-stroke" id="theme-toggle"></button>
+    </div>
+    <div class="half">
+        <div class="header">
+            <label for="script-input">Enter Script</label>
+            <label for="script-timeout" class="right-align">Script timeout</label>
+            <input id="script-timeout" type="text" autocomplete="off" placeholder="600" />
+        </div>
+        <textarea id="script-input"></textarea>
+        <br />
+        <div class="grid">
+            <label for="place-id">Place ID</label><input autocomplete="off" id="place-id" type="text"
+                placeholder="1818" />
+            <label for="universe-id">Universe ID</label><input autocomplete="off" id="universe-id" type="text"
+                placeholder="13058" />
+            <label for="place-version">Place Version</label><input autocomplete="off" id="place-version" type="text" />
+            <label for="api-key">API Key</label><input autocomplete="off" id="api-key" type="password" />
+        </div>
+        <br />
+        <div class="center">
+            <button id="upload-script">Upload script</button>
+        </div>
+        <br />
+        <div class="grid">
+            <label class="hide" for="session-id">Session ID</label><input class="hide" autocomplete="off"
+                id="session-id" type="text" />
+            <label for="task-id">Task ID</label><input readonly="true" autocomplete="off" id="task-id" type="text" />
+        </div>
+        <br />
+        <div class="center">
+            <button id="restore-task">Restore task from ID</button>
+        </div>
+    </div>
+    <div class="half">
+        <div class="quarter">
+            <div class="header">
+                <label for="output">Output from Luau</label>
+                <label for="wordwrap-toggle" class="right-align">Word Wrap</label>
+                <input id="wordwrap-toggle" type="checkbox" />
+            </div>
+            <div id="output" class="no-wrap">
+            </div>
+        </div>
+        <div class="quarter">
+            <div class="header">
+                <label for="return-values">Return Values</label>
+            </div>
+            <div id="return-values">
+            </div>
+        </div>
+    </div>
+</body>

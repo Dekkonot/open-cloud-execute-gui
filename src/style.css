@@ -1,0 +1,197 @@
+body {
+    --padding: 10px;
+    --half-padding: calc(var(--padding) / 2);
+    --top-bar: 25px;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    column-gap: var(--padding);
+    padding-left: var(--padding);
+    padding-right: var(--padding);
+}
+
+label {
+    font-size: large;
+    padding-bottom: var(--half-padding);
+    padding-right: var(--half-padding);
+}
+
+label:after {
+    content: ":";
+}
+
+input {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    background-color: var(--input-background);
+    border-color: var(--input-border);
+    color: var(--text-color);
+    min-width: 0;
+}
+
+button {
+    padding: var(--padding);
+    height: 40px;
+    width: 75%;
+    background-color: var(--button-background);
+    border: 2px solid var(--button-border);
+    color: var(--button-text);
+}
+
+button:hover {
+    background-color: var(--button-hover-background);
+    border: 2px solid var(--button-hover-border);
+    color: var(--button-hover-text);
+}
+
+button:active {
+    background-color: var(--button-active-background);
+    border: 2px solid var(--button-active-border);
+    color: var(--button-active-text);
+}
+
+button:disabled {
+    background-color: var(--button-disabled-background);
+    border: 2px solid var(--button-disabled-border);
+    color: var(--button-disabled-text);
+}
+
+.half {
+    width: calc(50% - var(--half-padding));
+    height: calc(100vh - var(--top-bar));
+    margin-top: calc(var(--top-bar));
+}
+
+.right-align {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.header {
+    display: flex;
+    padding-bottom: var(--half-padding)
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: max-content auto;
+    row-gap: calc(var(--half-padding));
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#titlebar {
+    width: calc(100% - (var(--padding) * 2));
+    height: var(--top-bar);
+    position: absolute;
+}
+
+#theme-toggle {
+    padding: initial;
+    height: var(--top-bar);
+    width: var(--top-bar);
+    color: var(--text-color);
+    background: transparent;
+    border: none;
+}
+
+#script-timeout {
+    width: 10%;
+}
+
+.quarter {
+    height: calc(50% - calc(var(--padding)));
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--half-padding);
+}
+
+#output {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--widget-color);
+    border: 2px solid var(--widget-border);
+    height: 100%;
+    overflow: auto;
+}
+
+#output span {
+    max-width: 100%;
+    min-width: 100%;
+    /*
+        Despite being half of the current padding (10px) we probably don't want
+        this to change with the rest of the padding.
+    */
+    padding-left: 5px;
+    display: block;
+    box-sizing: border-box;
+}
+
+#output span::after {
+    content: "\a";
+    white-space: pre;
+}
+
+.output-OUTPUT {
+    color: var(--output-print);
+}
+
+.output-WARNING {
+    color: var(--output-warn);
+}
+
+.output-ERROR {
+    color: var(--output-error);
+}
+
+.output-INFO {
+    color: var(--output-info);
+}
+
+#return-values {
+    background-color: var(--widget-color);
+    border: 2px solid var(--widget-border);
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: auto;
+}
+
+.hide {
+    display: none;
+}
+
+/* Highlight.js stuff for the JSON display */
+
+.hljs {
+    background-color: inherit;
+}
+
+.hljs-punctuation {
+    color: var(--json-punctuation);
+}
+
+.hljs-attr {
+    color: var(--json-string);
+}
+
+.hljs-string {
+    color: var(--json-string);
+}
+
+.hljs-number {
+    color: var(--json-number);
+}
+
+.hljs-literal {
+    color: var(--json-literal);
+}
