@@ -60,6 +60,8 @@ button:disabled {
 }
 
 .half {
+    display: flex;
+    flex-direction: column;
     width: calc(50% - var(--half-padding));
     height: calc(100vh - var(--top-bar));
     margin-top: calc(var(--top-bar));
@@ -68,6 +70,11 @@ button:disabled {
 .right-align {
     margin-left: auto;
     margin-right: 0;
+}
+
+.bottom-align {
+    margin-top: auto;
+    margin-bottom: 0;
 }
 
 .no-wrap {
@@ -170,7 +177,14 @@ button:disabled {
     display: none;
 }
 
-/* Highlight.js stuff for the JSON display */
+/* CodeMirror styling */
+
+.CodeMirror {
+    height: 100%;
+    margin-bottom: var(--padding)
+}
+
+/* Highlight.js styling */
 
 .hljs {
     background-color: inherit;
