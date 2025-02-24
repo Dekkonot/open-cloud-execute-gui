@@ -276,13 +276,12 @@ window.addEventListener("DOMContentLoaded", async () => {
         event.preventDefault();
     });
 
-    wordwrap_toggle.addEventListener("click", (event) => {
+    wordwrap_toggle.addEventListener("click", () => {
         if (wordwrap_toggle.checked) {
             output.className = "";
         } else {
             output.className = "no-wrap";
         }
-        event.preventDefault();
     });
 
     const CONFIG: ProgramConfig = await invoke("get_config");
