@@ -1,6 +1,6 @@
-const default_to_light = window.matchMedia(
-    "(prefers-color-scheme: light)"
-).matches;
+"use strict";
+
+const return_values = document.getElementById("return-values");
 
 let editor;
 export function initialize_editor(theme) {
