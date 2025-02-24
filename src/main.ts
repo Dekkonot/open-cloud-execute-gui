@@ -1,6 +1,15 @@
 import { invoke } from "@tauri-apps/api/core";
 
-import { display_return, script_editor_content } from "./function.js";
+import {
+    initialize_editor,
+    set_editor_text,
+    get_editor_text,
+    set_editor_theme,
+    display_return,
+} from "./3rd-party.js";
+
+const DEFAULT_SCRIPT =
+    'print("Hello World!")\n\nreturn "This is an example script."';
 
 const script_timeout = document.getElementById(
     "script-timeout"
@@ -109,7 +118,7 @@ async function create_task(): Promise<OpenCloudExecutionTask> {
     return invoke("create_task", {
         apiKey: api_key.value,
         taskUrl: url,
-        script: script_editor_content(),
+        script: get_editor_text(),
         timeout: timeout === "" ? null : parseFloat(timeout),
     });
 }
@@ -206,4 +215,47 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         }
     };
+
+    let is_light = window.matchMedia("(prefers-color-scheme: light)").matches;
+    initialize_editor(is_light ? "light" : "dark");
+    document.body.dataset.theme = is_light ? "light" : "dark";
+
+    const theme_toggle = document.getElementById(
+        "theme-toggle"
+    )! as HTMLInputElement;
+    const wordwrap_toggle = document.getElementById(
+        "wordwrap-toggle"
+    )! as HTMLInputElement;
+
+    theme_toggle.addEventListener("click", (event) => {
+        if (is_light) {
+            set_editor_theme("dark");
+            document.body.dataset.theme = "dark";
+            is_light = false;
+        } else {
+            set_editor_theme("light");
+            document.body.dataset.theme = "light";
+            is_light = true;
+        }
+        event.preventDefault();
+    });
+
+    // This will be our little secret. :-)
+    theme_toggle.addEventListener("contextmenu", (event) => {
+        set_editor_theme("hotdog");
+        document.body.dataset.theme = "hotdog";
+        is_light = false;
+        event.preventDefault();
+    });
+
+    wordwrap_toggle.addEventListener("click", (event) => {
+        if (wordwrap_toggle.checked) {
+            output.className = "";
+        } else {
+            output.className = "no-wrap";
+        }
+        event.preventDefault();
+    });
+
+    set_editor_text(DEFAULT_SCRIPT);
 });
