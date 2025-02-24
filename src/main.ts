@@ -6,6 +6,7 @@ import {
     get_editor_text,
     set_editor_theme,
     display_return,
+    ThemeType,
 } from "./3rd-party.js";
 
 const DEFAULT_SCRIPT =
@@ -33,6 +34,13 @@ const output = document.getElementById("output")! as HTMLDivElement;
 const return_values = document.getElementById(
     "return-values"
 )! as HTMLDivElement;
+
+type ProgramConfig = {
+    theme: ThemeType;
+    place_id: string;
+    universe_id: string;
+    version_number: string;
+};
 
 type OpenCloudExecutionTask = {
     path: string;
@@ -173,7 +181,19 @@ function parse_task(path: string): OpenCloudPath | null {
     return null;
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+async function save_fields() {
+    try {
+        await invoke("update_config", {
+            placeId: place_id.value,
+            universeId: universe_id.value,
+            versionNumber: place_version.value,
+        });
+    } catch {
+        console.log("failed to save user input to disk");
+    }
+}
+
+window.addEventListener("DOMContentLoaded", async () => {
     upload_script.onclick = async () => {
         clear_results();
         clear_output();
@@ -189,6 +209,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 place_version.value = path.place_version;
                 session_id.value = path.session_id;
                 task_id.value = path.task_id;
+                await save_fields();
             } else {
                 window.alert(
                     "Cannot parse URL of task. This will only impact the display of the IDs, but please report it!"
@@ -216,9 +237,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    let is_light = window.matchMedia("(prefers-color-scheme: light)").matches;
-    initialize_editor(is_light ? "light" : "dark");
-    document.body.dataset.theme = is_light ? "light" : "dark";
+    let is_light = false;
 
     const theme_toggle = document.getElementById(
         "theme-toggle"
@@ -227,23 +246,32 @@ window.addEventListener("DOMContentLoaded", () => {
         "wordwrap-toggle"
     )! as HTMLInputElement;
 
-    theme_toggle.addEventListener("click", (event) => {
+    theme_toggle.addEventListener("click", async (event) => {
         if (is_light) {
             set_editor_theme("dark");
             document.body.dataset.theme = "dark";
+            await invoke("update_config", {
+                theme: "dark",
+            });
             is_light = false;
         } else {
             set_editor_theme("light");
             document.body.dataset.theme = "light";
+            await invoke("update_config", {
+                theme: "light",
+            });
             is_light = true;
         }
         event.preventDefault();
     });
 
     // This will be our little secret. :-)
-    theme_toggle.addEventListener("contextmenu", (event) => {
+    theme_toggle.addEventListener("contextmenu", async (event) => {
         set_editor_theme("hotdog");
         document.body.dataset.theme = "hotdog";
+        await invoke("update_config", {
+            theme: "hotdog",
+        });
         is_light = false;
         event.preventDefault();
     });
@@ -255,6 +283,32 @@ window.addEventListener("DOMContentLoaded", () => {
             output.className = "no-wrap";
         }
         event.preventDefault();
+    });
+
+    const CONFIG: ProgramConfig = await invoke("get_config");
+
+    if (CONFIG.theme == "default") {
+        is_light = window.matchMedia("(prefers-color-scheme: light)").matches;
+        initialize_editor(is_light ? "light" : "dark");
+        document.body.dataset.theme = is_light ? "light" : "dark";
+    } else {
+        is_light = CONFIG.theme == "light";
+        initialize_editor(CONFIG.theme);
+        document.body.dataset.theme = CONFIG.theme;
+    }
+
+    place_id.value = CONFIG.place_id;
+    universe_id.value = CONFIG.universe_id;
+    place_version.value = CONFIG.version_number;
+
+    place_id.addEventListener("blur", async () => {
+        await save_fields();
+    });
+    universe_id.addEventListener("blur", async () => {
+        await save_fields();
+    });
+    place_version.addEventListener("blur", async () => {
+        await save_fields();
     });
 
     set_editor_text(DEFAULT_SCRIPT);

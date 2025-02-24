@@ -30,5 +30,6 @@ macro_rules! from_err {
 from_err!(
     reqwest::Error,
     reqwest::header::InvalidHeaderValue,
-    serde_json::Error
+    serde_json::Error,
+    std::io::Error
 );

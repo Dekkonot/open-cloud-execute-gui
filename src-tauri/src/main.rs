@@ -3,5 +3,8 @@
 
 #[tokio::main]
 async fn main() {
+    open_cloud_luau_execute_lib::config::load_config()
+        .await
+        .unwrap();
     open_cloud_luau_execute_lib::run()
 }

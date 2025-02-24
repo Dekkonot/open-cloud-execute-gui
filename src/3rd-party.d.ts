@@ -1,4 +1,4 @@
-export type ThemeType = "light" | "dark" | "hotdog";
+export type ThemeType = "light" | "dark" | "hotdog" | "default";
 
 export function initialize_editor(theme: ThemeType);
 

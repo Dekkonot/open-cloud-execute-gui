@@ -26,5 +26,6 @@ serde_json = "1"
 # Tokio son or Electron daughter?
 tokio = { version = "1", features = ["full"] }
 reqwest = { version = "0.12", features = ["json"] }
+dirs = "6.0.0"
 
 thiserror = "2.0.11"

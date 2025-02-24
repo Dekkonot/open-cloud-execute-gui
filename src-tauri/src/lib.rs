@@ -1,7 +1,9 @@
+pub mod config;
 mod error;
 mod http;
 mod open_cloud;
 
+use config::{Config, Theme};
 pub use error::{Error, Result};
 
 use open_cloud::{FullOpenCloudExecutionTask, OpenCloudExecutionTask, StructuredMessage};
@@ -36,6 +38,21 @@ async fn get_logs_structured(api_key: &str, path: &str) -> Result<Vec<Structured
     http::get_logs_structured(api_key, path).await
 }
 
+#[tauri::command]
+async fn get_config() -> Config {
+    config::get_config().await
+}
+
+#[tauri::command]
+async fn update_config(
+    theme: Option<Theme>,
+    place_id: Option<String>,
+    universe_id: Option<String>,
+    version_number: Option<String>,
+) -> Result<()> {
+    config::set_config(theme, place_id, universe_id, version_number).await
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
@@ -45,7 +62,9 @@ pub fn run() {
             create_task_url,
             await_task,
             get_logs_flat,
-            get_logs_structured
+            get_logs_structured,
+            get_config,
+            update_config,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
