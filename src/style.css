@@ -11,6 +11,7 @@ body {
     column-gap: var(--padding);
     padding-left: var(--padding);
     padding-right: var(--padding);
+    overflow: hidden;
 }
 
 label {
